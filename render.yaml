@@ -10,7 +10,7 @@ services:
     staticPublishPath: artifacts/elkam-studios/dist/public
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://api.elkamstudios.com
+        value: https://elkam-api.onrender.com
     domains:
       - elkamstudios.com
       - www.elkamstudios.com
@@ -29,8 +29,6 @@ services:
       pnpm install --frozen-lockfile &&
       pnpm --filter @workspace/api-server run build
     startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
-    domains:
-      - api.elkamstudios.com
     envVars:
       - key: NODE_ENV
         value: production
