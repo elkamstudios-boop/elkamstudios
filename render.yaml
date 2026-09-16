@@ -22,6 +22,7 @@ services:
   - name: elkam-api
     type: web
     runtime: node
+    plan: free
     buildCommand: >-
       corepack enable &&
       corepack prepare pnpm@12.3.4 --activate &&
@@ -33,15 +34,10 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      # Set manually in the Render dashboard (Environment tab) after deploy:
+      # your Neon Postgres connection string. Kept out of the blueprint so
+      # it's never committed to the repo.
       - key: DATABASE_URL
-        fromDatabase:
-          name: elkam-db
-          property: connectionString
+        sync: false
       - key: ADMIN_TOKEN
         generateValue: true
-
-databases:
-  - name: elkam-db
-    plan: free
-    databaseName: elkam_studios
-    user: elkam
