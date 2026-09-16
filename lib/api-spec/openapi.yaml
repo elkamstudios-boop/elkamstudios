@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: enquiries
+    description: Enquiry / lead capture operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /enquiries:
+    post:
+      operationId: submitEnquiry
+      tags: [enquiries]
+      summary: Submit an enquiry
+      description: Stores a new lead and pushes a row to Google Sheets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EnquiryInput"
+      responses:
+        "201":
+          description: Enquiry created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Enquiry"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    EnquiryInput:
+      type: object
+      required:
+        - fullName
+        - phone
+        - email
+      properties:
+        fullName:
+          type: string
+          minLength: 1
+        phone:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        company:
+          type: ["string", "null"]
+        designation:
+          type: ["string", "null"]
+    Enquiry:
+      type: object
+      required:
+        - id
+        - fullName
+        - phone
+        - email
+        - createdAt
+      properties:
+        id:
+          type: integer
+        fullName:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        company:
+          type: ["string", "null"]
+        designation:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string

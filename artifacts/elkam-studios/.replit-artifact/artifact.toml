@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "ELKAM Studios"
+version = "1.0.0"
+id = "artifacts/elkam-studios"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18205
+
+[services.development]
+run = "pnpm --filter @workspace/elkam-studios run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/elkam-studios", "run", "build" ]
+publicDir = "artifacts/elkam-studios/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18205"
+BASE_PATH = "/"

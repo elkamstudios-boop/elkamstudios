@@ -1,0 +1,21 @@
+Perform a complete mobile-first responsive redesign of the existing website without making any changes to the desktop or laptop experience. The desktop layout, spacing, typography, interactions, animations, and visual hierarchy must remain exactly as they are. Focus only on screens below 768px width.
+
+Fix all mobile responsiveness issues across the entire website. Audit every section and ensure that text, buttons, images, cards, icons, navigation elements, grids, forms, and containers are properly scaled for mobile devices. Eliminate oversized typography, excessive padding, large margins, overflowing elements, horizontal scrolling, broken alignments, inconsistent spacing, cropped content, and awkward visual proportions.
+
+Rebuild the hero section specifically for mobile. Ensure the headline, subheading, CTA buttons, background elements, graphics, and imagery are properly stacked, centered, and proportioned. The hero section should immediately communicate the brand without requiring excessive scrolling. Maintain a premium, futuristic, minimal, and high-end agency aesthetic while improving readability and usability.
+
+Apply a consistent mobile design system throughout the website:
+
+* Proper mobile typography scale with readable heading and body text sizes.
+* Consistent spacing system using responsive margins and padding.
+* Full-width containers with appropriate gutters.
+* Correct vertical rhythm between sections.
+* Proper alignment of all content.
+* Responsive images and illustrations.
+* Touch-friendly buttons and navigation.
+* Optimized card layouts for mobile screens.
+* Improved readability and visual hierarchy.
+
+Ensure all sections feel intentional, balanced, and professionally designed on modern mobile devices including iPhone and Android screens. Validate responsiveness across common breakpoints (320px, 375px, 390px, 414px, 768px). The final mobile experience should feel like a premium agency website designed specifically for mobile rather than a scaled-down desktop version.
+
+Do not modify desktop layouts, desktop spacing, desktop typography, desktop animations, or desktop interactions in any way. Mobile-only improvements are required.

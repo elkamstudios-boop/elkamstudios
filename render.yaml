@@ -1,0 +1,46 @@
+services:
+  - name: elkam-studios
+    type: web
+    runtime: static
+    buildCommand: >-
+      corepack enable &&
+      corepack prepare pnpm@12.3.4 --activate &&
+      pnpm install --frozen-lockfile &&
+      PORT=5173 BASE_PATH=/ pnpm --filter @workspace/elkam-studios run build
+    staticPublishPath: artifacts/elkam-studios/dist/public
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://api.elkamstudios.com
+    domains:
+      - elkamstudios.com
+      - www.elkamstudios.com
+    routes:
+      - path: /*
+        route: /index.html
+
+  - name: elkam-api
+    type: web
+    runtime: node
+    buildCommand: >-
+      corepack enable &&
+      corepack prepare pnpm@12.3.4 --activate &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter @workspace/api-server run build
+    startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
+    domains:
+      - api.elkamstudios.com
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: elkam-db
+          property: connectionString
+      - key: ADMIN_TOKEN
+        generateValue: true
+
+databases:
+  - name: elkam-db
+    plan: free
+    databaseName: elkam_studios
+    user: elkam

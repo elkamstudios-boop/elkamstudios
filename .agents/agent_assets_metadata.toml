@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "RvPDuIg3HzGWJ1-N7G_TI"
+uri = "file://ELKAM_STUDIOS_WEBSITE_DOCUMENTATION.md"
+type = "text"
+title = "ELKAM Studios Website Documentation"
+description = "Complete design, animation, responsive behavior, architecture, API, database, Google Sheets integration, source-code map, maintenance guide, and QA checklist for the ELKAM Studios website."
+
+[[outputs]]
+id = "LnRxvWRXvWS5EmFyVoR_s"
+uri = "file://ELKAM_STUDIOS_WEBSITE_DOCUMENTATION.docx"
+type = "word_document"
+title = "ELKAM Studios Website Documentation — Word Document"
+description = "Downloadable Word version of the complete ELKAM Studios website design, animation, responsive behavior, architecture, API, database, integration, source-code map, and maintenance handoff."
