@@ -15,8 +15,9 @@ services:
       - elkamstudios.com
       - www.elkamstudios.com
     routes:
-      - path: /*
-        route: /index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
 
   - name: elkam-api
     type: web
