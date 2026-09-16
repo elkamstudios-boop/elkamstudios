@@ -509,15 +509,18 @@ const Home = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             {[
-              { name: "belong", niche: "Fitness", logo: logoBelong, bg: "#E8F535", cover: false, padding: "p-6" },
-              { name: "thunify.in", niche: "Clothing", logo: logoThunify, bg: "#0A0A0A", cover: true, padding: "" },
-              { name: "wellfed", niche: "Food", logo: logoWellfed, bg: "#FFFFFF", cover: false, padding: "p-4" },
-              { name: "Rathi Silks & Sarees", niche: "Clothing", logo: logoRathi, bg: "#B23D4C", cover: true, padding: "" },
-              { name: "Clinzor", niche: "Healthcare", logo: logoClinzor, bg: "#2B35AD", cover: true, padding: "" },
-              { name: "The Windsouls", niche: "Real Estate", logo: logoWindsouls, bg: "#111111", cover: false, padding: "p-8" },
+              { name: "belong", niche: "Fitness", logo: logoBelong, bg: "#E8F535", cover: false, padding: "p-6", url: "https://www.instagram.com/project.belong/" },
+              { name: "thunify.in", niche: "Clothing", logo: logoThunify, bg: "#0A0A0A", cover: true, padding: "", url: "https://www.instagram.com/thunify.in/" },
+              { name: "wellfed", niche: "Food", logo: logoWellfed, bg: "#FFFFFF", cover: false, padding: "p-4", url: "https://www.instagram.com/bewellfed.in/" },
+              { name: "Rathi Silks & Sarees", niche: "Clothing", logo: logoRathi, bg: "#B23D4C", cover: true, padding: "", url: "https://www.instagram.com/rathisilks_sarees/" },
+              { name: "Clinzor", niche: "Healthcare", logo: logoClinzor, bg: "#2B35AD", cover: true, padding: "", url: "https://www.instagram.com/clinzorofficial/" },
+              { name: "The Windsouls", niche: "Real Estate", logo: logoWindsouls, bg: "#111111", cover: false, padding: "p-8", url: "https://thewindsouls.com/" },
             ].map((work, i) => (
-              <motion.div
+              <motion.a
                 key={i}
+                href={work.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -538,7 +541,7 @@ const Home = () => {
                     {work.niche}
                   </span>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
